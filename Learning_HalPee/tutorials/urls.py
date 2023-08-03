@@ -10,5 +10,4 @@ urlpatterns = [
     path('javascript/', views.javascript, name='javascript'),
     path('bootstrap/', views.bootstrap, name='bootstrap'),
     path('python/', views.python, name='python'),
-
 ]

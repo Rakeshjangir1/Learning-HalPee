@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tutorials',
     'tinymce',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -127,5 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATIC_ROOT = BASE_DIR / 'static_collect'
+STATIC_ROOT = BASE_DIR / 'collect_static'
 STATIC_URL = 'static/'

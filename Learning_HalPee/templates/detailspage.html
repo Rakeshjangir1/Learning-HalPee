@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'css/detailspage.css' %}">
+    <title>{{ path.1 | capfirst }}</title>
 </head>
 <body>
 
@@ -13,8 +14,8 @@
         <div class="col-md-3">
             <div class="row small-screen-span">
                 <div class="small-screen-span-title">
-                    <h5>{{ request.path | cut:"/" | upper }}</h5>
-                    <h5>{{ request.path.startswith | cut:"/" | upper }}</h5>
+<!--                    <h5>{{ request.path | cut:"/" | upper }}</h5>-->
+                    <h4>{{ path.1|upper }}</h4>
                 </div>
                 <div class="small-screen-span-icon">
                     <div class="menu-icon" id="menu_icon_btn" onclick="menu_click()">
@@ -28,9 +29,10 @@
 
         <!--    Vertical Menu Body Start Here     -->
 
-
                 {% for i in post_info %}
                     <a href="{{ i.slug }}" class="active">{{ i.title }}</a>
+                    {% empty %}
+                    <h3 style="text-align:center;">No Data Found !!</h3>
                 {% endfor %}
 
 
@@ -39,11 +41,17 @@
             </div>
         </div>
         <div class="col-md-9 details-body">
+            {% for data in content %}
+                <h2>{{ data.title | capfirst }}</h2></br>
+            {% endfor %}
 
         <!--    Content Body Start Here     -->
 
-
-            {{ content | safe }}
+            {% for data in content %}
+                {{ data.content | safe }}
+                {% empty %}
+                    <h2 style="text-align:center; margin-top:200px;">No Data Found !!</h2>
+            {% endfor %}
 
 
 
